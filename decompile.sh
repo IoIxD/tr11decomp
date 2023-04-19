@@ -1,1 +1,2 @@
-/opt/ghidra/support/analyzeHeadless decompiled -import "$(pwd)/source/program\ files/Sunspire\ Studios/Tux\ Racer/bin/x86/glibc-2.1/tuxracer-bin."
+rm decompiled/TuxRacer11Decomp.rep
+/opt/ghidra/support/analyzeHeadless decompiled TuxRacer11Decomp -import $(pwd)/source/tuxracer-bin -postscript decompile.py -max-cpu $(nproc)
