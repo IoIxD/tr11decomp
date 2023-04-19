@@ -17,7 +17,10 @@ for function in list(functions):
         continue
 
     f1 = open("decompiled/"+fnname+".c", "w")
-    f2 = open("patches/"+fnname+".py", "r")
+    try:
+        f2 = open("patches/"+fnname+".py", "r")
+    except IOError:
+        f2 = None
     if f2 is not None:
         eval(f2.read())
     # decompile each function
