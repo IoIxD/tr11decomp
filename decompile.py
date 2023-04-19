@@ -15,9 +15,13 @@ for function in list(functions):
     fnname = str(function)
     if fnname.startswith("<EXTERNAL>"):
         continue
-    f = open("decompiled/"+fnname+".c", "w")
+
+    f1 = open("decompiled/"+fnname+".c", "w")
+    f2 = open("patches/"+fnname+".py", "r")
+    if f2 is not None:
+        eval(f2.read())
     # decompile each function
     tokengrp = decompinterface.decompileFunction(
         function, 0, ConsoleTaskMonitor())
-    f.write(tokengrp.getDecompiledFunction().getC())
-    f.close()
+    f1.write(tokengrp.getDecompiledFunction().getC())
+    f1.close()
