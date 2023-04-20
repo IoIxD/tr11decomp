@@ -1,2 +1,7 @@
-rm decompiled/TuxRacer11Decomp.rep -r
-/opt/ghidra/support/analyzeHeadless decompiled TuxRacer11Decomp -import $(pwd)/source/tuxracer-bin -postscript decompile.py -max-cpu $(nproc)
+rm project/decompiled/*.c
+rm project/decompiled/*.h
+python -m ghidrecomp \
+    --project-path project/ghidra \
+    --output-path project/decompiled \
+    --symbols-path project/symbols \
+    ./source/tuxracer-bin
