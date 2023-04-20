@@ -108,9 +108,10 @@ def file_write(output_path, name, decomp, sig):
 
     print(name)
     namespace = name.split("_")[0]
-    uppername = re.split("[A-Z]", namespace)[0]
-    if (uppername != ""):
-        namespace = uppername.lower()
+
+    # w-we're just gonna shove c++ code off to the side for now...
+    if namespace.lower() != namespace:
+        namespace = "untouched_cpp"
     if (namespace == ""):
         namespace = "misc"
     (output_path / (namespace + '.h')).open("a").write(sig+"\n")
